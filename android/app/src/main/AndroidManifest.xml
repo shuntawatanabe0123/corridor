@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kibisisa0123.corridor">
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
    <application
    
         android:label="corridor"
@@ -33,5 +34,6 @@
             android:value="2" />
             <meta-data android:name="com.google.android.geo.API_KEY"
               android:value="AIzaSyD9yr8iPM13UjtHaImDAxb-kkCr9jjGIew"/>
+           
     </application>
 </manifest>
