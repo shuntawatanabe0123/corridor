@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kibisisa0123.corridor">
    <application
+   
         android:label="corridor"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
@@ -30,5 +31,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+            <meta-data android:name="com.google.android.geo.API_KEY"
+              android:value="AIzaSyD9yr8iPM13UjtHaImDAxb-kkCr9jjGIew"/>
     </application>
 </manifest>
