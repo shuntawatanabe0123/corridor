@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "796447433401",
+    "project_id": "corridor-chat",
+    "storage_bucket": "corridor-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796447433401:android:ed444c5cbed787cf1d7168",
+        "android_client_info": {
+          "package_name": "com.kibisisa0123.corridor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796447433401-l1iqs36uh2da4k5rd768a3sveqe607q2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kibisisa0123.corridor",
+            "certificate_hash": "bd580a5bbb8ae5970cb5415bb43de81eb3a33a70"
+          }
+        },
+        {
+          "client_id": "796447433401-pqchiglq3t7f7m2npbhpm441hdm98ijc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM3qFiqrNG87AGINJidWW4gdTRJmBVAGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796447433401-pqchiglq3t7f7m2npbhpm441hdm98ijc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "796447433401-n4mdsm01apga521im239l3u505u5an0v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kibisisa0123.corridor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,12 +1,21 @@
 import 'dart:async';
 
+import 'package:corridor/firebase_options.dart';
+import 'package:corridor/second.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-void main() => runApp(const MyApp());
+Future<void> main() async { // main 関数でも async が使えます
+  WidgetsFlutterBinding.ensureInitialized(); // runApp 前に何かを実行したいときはこれが必要です。
+  await Firebase.initializeApp( // これが Firebase の初期化処理です。
+    options: DefaultFirebaseOptions.android,
+  );
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -110,10 +119,33 @@ Set<Marker> _createMarker() {
     Marker(
       markerId: MarkerId("marker_2"),
       position: LatLng(35.6710, 139.7596),
-      // infoWindow: InfoWindow(title: "天ぷらとワイン"),
-      onTap: () {
-        print("Clicked"); 
-      },
+      infoWindow: InfoWindow(title: "天ぷらとワイン"),
+       onTap: () {
+         showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Text('天ぷらとワイン'),
+                    content: Text("店舗詳細を見ますか？"),
+                    actions: [
+                      TextButton(
+                        child: Text("Cancel"),
+                        onPressed: (){
+                          // （1） 指定した画面に遷移する
+                          Navigator.push(context, MaterialPageRoute(
+                            // （2） 実際に表示するページ(ウィジェット)を指定する
+                            builder: (context) => SecondPage()
+                          ));
+                        },
+                      ),
+                      TextButton(
+                      child: Text("OK"),
+                      onPressed: () => launchUrl_2(),
+                    ),
+                  ],
+                  );
+                });
+     },
     ),
  };
 }
@@ -127,7 +159,15 @@ Set<Marker> _createMarker() {
       throw error;
     }
   }
+     Future<void> launchUrl_2() async {
+    final url = "https://tabelog.com/tokyo/A1301/A130103/13250016/";
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    } else {
+      final Error error = ArgumentError('Error launching $url');
+      throw error;
+    }
+  }
 
   
 }
-
