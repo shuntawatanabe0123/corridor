@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:corridor/map_page.dart';
 import 'package:corridor/post.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -70,6 +71,22 @@ class _ChatPageState extends State<ChatPage> {
              // actions プロパティにWidgetを与えると右端に表示されます。
         actions: [
           // tap 可能にするために InkWell を使います。
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const MyApp2();
+                  },
+                ),
+              );
+            },
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                FirebaseAuth.instance.currentUser!.photoURL!,
+              ),
+            ),
+          ),SizedBox(width: 8,),
           InkWell(
             onTap: () {
               Navigator.of(context).push(
