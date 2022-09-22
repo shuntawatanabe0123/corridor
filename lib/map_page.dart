@@ -1,13 +1,15 @@
 import 'dart:async';
 
-import 'package:corridor/second.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import 'alertdialog.dart';
 import 'my_page.dart';
 
 class MyApp2 extends StatelessWidget {
@@ -135,20 +137,7 @@ Set<Marker> _createMarker() {
          showDialog(
                 context: context,
                 builder: (context) {
-                  return AlertDialog(
-                    title: Text('Aの動作の確認'),
-                    content: Text("This is the content"),
-                    actions: [
-                      TextButton(
-                        child: Text("Cancel"),
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                      TextButton(
-                      child: Text("OK"),
-                      onPressed: () => launchUrl(),
-                    ),
-                  ],
-                  );
+                 return DialogNew();
                 });
      },
      ),
@@ -160,31 +149,15 @@ Set<Marker> _createMarker() {
          showDialog(
                 context: context,
                 builder: (context) {
-                  return AlertDialog(
-                    title: Text('天ぷらとワイン'),
-                    content: Text("店舗詳細を見ますか？"),
-                    actions: [
-                      TextButton(
-                        child: Text("Cancel"),
-                        onPressed: (){
-                          // （1） 指定した画面に遷移する
-                          Navigator.push(context, MaterialPageRoute(
-                            // （2） 実際に表示するページ(ウィジェット)を指定する
-                            builder: (context) => SecondPage()
-                          ));
-                        },
-                      ),
-                      TextButton(
-                      child: Text("OK"),
-                      onPressed: () => launchUrl_2(),
-                    ),
-                  ],
-                  );
+                 return DialogNew2();
                 });
      },
     ),
  };
 }
+
+
+
 
    Future<void> launchUrl() async {
     final url = "https://www.oreno.co.jp/restaurant/yakitori_ginza9";

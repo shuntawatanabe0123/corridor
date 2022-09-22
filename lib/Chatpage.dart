@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:corridor/map_page.dart';
 import 'package:corridor/post.dart';
+import 'package:corridor/review_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -71,6 +72,25 @@ class _ChatPageState extends State<ChatPage> {
              // actions プロパティにWidgetを与えると右端に表示されます。
         actions: [
           // tap 可能にするために InkWell を使います。
+           InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const ReviewPage();
+                  },
+                ),
+              );
+            },
+            // ignore: prefer_const_constructors
+          child: CircleAvatar(
+            backgroundColor: Color.fromARGB(255, 255, 3, 3),
+            child: 
+            // ignore: prefer_const_constructors
+            Icon(Icons.place,
+            size: 30,
+            )),
+          ),SizedBox(width: 8,),
           InkWell(
             onTap: () {
               Navigator.of(context).push(
@@ -81,11 +101,14 @@ class _ChatPageState extends State<ChatPage> {
                 ),
               );
             },
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                FirebaseAuth.instance.currentUser!.photoURL!,
-              ),
-            ),
+            // ignore: prefer_const_constructors
+          child: CircleAvatar(
+            backgroundColor: Color.fromARGB(255, 8, 63, 0),
+            child: 
+            // ignore: prefer_const_constructors
+            Icon(Icons.place,
+            size: 30,
+            )),
           ),SizedBox(width: 8,),
           InkWell(
             onTap: () {
